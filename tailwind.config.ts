@@ -13,7 +13,9 @@ const config: Config = {
         white: '#EEF1EC',
         tosca_main: '#5FF3D6',
         purple_main: '#7B46F3',
-        blue_main: '#5392EA'
+        blue_main: '#5392EA',
+        blue_dark: '#4987DD',
+        blue_darker: '#467CC8'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
