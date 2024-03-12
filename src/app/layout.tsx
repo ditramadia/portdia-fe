@@ -7,7 +7,7 @@ import "@public/styles/text.css";
 
 export const metadata: Metadata = {
   title: "Portdia | Ditra Amadia Portfolio",
-  description: "Ditra Amadia Personal Portfolio",
+  description: "Portdia landing page",
 };
 
 export default function RootLayout({

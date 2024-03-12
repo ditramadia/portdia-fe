@@ -19,6 +19,9 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     },
+    screens: {
+      'md': '950px'
+    }
   },
   plugins: [],
 };
