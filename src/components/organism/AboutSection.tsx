@@ -5,6 +5,7 @@ import DownloadIcon from '@public/icons/download-ic.svg';
 
 // Components
 import Button from '../atom/Button';
+import TextLink from '../atom/TextLink';
 
 const AboutSection = () => {
   return (
@@ -15,13 +16,13 @@ const AboutSection = () => {
       <div className='w-full flex flex-col items-center gap-7 md:gap-8'>
         <div className='flex flex-col gap-1'>
           <p className='text-white poppins-thin text-center'>
-            Hello, I'm Ditra, a full-stack developer currently studying computer science at ITB.
+            Hello, I'm Ditra, a <TextLink text='full-stack developer' /> currently studying <TextLink text='computer science at ITB'/>.
           </p>
           <p className='text-white poppins-thin text-center'>
-            I love to express my skills and creativity through this website.
+            I love to express my <TextLink text='skills' /> and <TextLink text='creativity' /> through this website.
           </p>
           <p className='text-white poppins-thin text-center'> 
-            Feel free to have a look and contact me about anything!
+            Feel free to have a look and <TextLink text='contact me' /> about anything!
           </p>
         </div>
 
