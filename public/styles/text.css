@@ -2,6 +2,6 @@
 
 @layer utilities {
   .text-purple-to-blue {
-    @apply bg-gradient-to-r from-purple_main to-blue_main inline-block text-transparent bg-clip-text;
+    @apply pb-2 bg-gradient-to-r from-purple_main to-blue_main inline-block text-transparent bg-clip-text;
   }
 }

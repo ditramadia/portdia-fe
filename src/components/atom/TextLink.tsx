@@ -39,6 +39,7 @@ const TextLink = (props: TextLinkProps) => {
       whileInView="animate"
       whileHover="hover"
       onClick={onClick}
+      viewport={{ once: true }}
     >
       <motion.span 
         className='absolute -z-10 bottom-[1px] w-full h-[2px] bg-tosca_main' 

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Variants, motion } from 'framer-motion';
 
+// Animations
+import { fadeDown } from '@/animations/fade';
+
 // Asset
 import DownloadIcon from '@public/icons/download-ic.svg';
 
@@ -19,22 +22,6 @@ const AboutSection = () => {
       setLoading(false);
     }, 1000)
   });
-
-  const titleVariants: Variants = {
-    enter: {
-      opacity: 0,
-      y: -20
-    },
-    animate: i => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: 'easeInOut',
-        duration: 1,
-        delay: i * 0.2
-      }
-    })
-  }
 
   const textVariants: Variants = {
     enter: {
@@ -81,14 +68,15 @@ const AboutSection = () => {
     <div></div>
   ) : 
   (
-    <div className='w-11/12 pb-20 flex flex-col gap-7 md:gap-10 items-center'>
+    <div className='w-11/12 mb-52 flex flex-col gap-7 md:gap-10 items-center'>
 
       <motion.h2 
-        className='w-fit abril-fatface-regular text-purple-to-blue text-5xl'
+        className='w-fit abril-fatface-regular text-purple-to-blue text-5xl text-center'
         custom={0}
-        variants={titleVariants}
+        variants={fadeDown}
         initial="enter"
         whileInView="animate"
+        viewport={{ once: true }}
       >
         About Me
       </motion.h2>
@@ -101,6 +89,7 @@ const AboutSection = () => {
             variants={textVariants}
             initial="enter"
             whileInView="animate"
+            viewport={{once: true}}
           >
             Hello, I'm Ditra, a <TextLink text='full-stack developer' onClick={() => handleOpenModal('dev')}/> currently studying <TextLink text='computer science at ITB' onClick={() => handleOpenModal('itb')}/>.
           </motion.p>
@@ -110,6 +99,7 @@ const AboutSection = () => {
             variants={textVariants}
             initial="enter"
             whileInView="animate"
+            viewport={{once: true}}
           >
             I love to express my <TextLink text='skills' onClick={() => handleOpenModal('skills')} /> and <TextLink text='creativity' onClick={() => handleOpenModal('creativity')}/> through this website.
           </motion.p>
@@ -119,6 +109,7 @@ const AboutSection = () => {
             variants={textVariants}
             initial="enter"
             whileInView="animate"
+            viewport={{once: true}}
           > 
             Feel free to have a look and <TextLink text='contact me' /> about anything!
           </motion.p>
@@ -132,10 +123,10 @@ const AboutSection = () => {
           variants={buttonVariants}
           initial="enter"
           whileInView="animate"
+          viewport={{once: true}}
         >
-          <div className='relative w-[150px] group'>
-            <Button text='Resume' icon={DownloadIcon}/>
-            <div className='absolute -z-10 -top-[140px] -right-[120px] w-[300px] h-[300px] rounded-full bg-gradient-radial from-blue_main to-transparent to-65% opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-20'></div>
+          <div className='w-[150px] group'>
+            <Button text='Resume' icon={DownloadIcon} iconAlt='Download icon'/>
           </div>
         </motion.a>
       </div>
