@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+// Asset
+import BlueEllipes from '@public/images/blue-ellipse.png';
 
 // Component
 import TextInput from '../atom/TextInput';
 import TextAreaInput from '../atom/TextAreaInput';
 import Footer from './Footer';
-import Button from '../atom/Button';
 
 const Contact = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,7 +35,7 @@ const Contact = () => {
         Let's talk about something big
       </h2>
 
-      <div className='w-full h-fit overflow-y-hidden mt-24 pt-5 flex flex-col items-center gap-32'>
+      <div className='relative w-full h-fit mt-24 pt-5 flex flex-col items-center gap-32'>
         <div className='max-w-[500px] w-11/12 flex flex-col gap-5 items-center'>
           <TextInput
             label='Email'
@@ -62,6 +65,8 @@ const Contact = () => {
         </div>
 
         <Footer />
+
+        <Image className='absolute -z-[10] max-w-[950px] w-full ml-auto mr-auto' src={BlueEllipes} alt='Big ellipse' fill style={{objectFit: "cover", objectPosition: 'top'}}/>
       
       </div>
 
