@@ -84,7 +84,7 @@ const AboutSection = () => {
     <div className='w-11/12 pb-20 flex flex-col gap-7 md:gap-10 items-center'>
 
       <motion.h2 
-        className='w-fit abril-fatface-regular text-purple-to-blue text-5xl'
+        className='w-fit abril-fatface-regular text-purple-to-blue text-5xl text-center'
         custom={0}
         variants={titleVariants}
         initial="enter"
@@ -101,6 +101,7 @@ const AboutSection = () => {
             variants={textVariants}
             initial="enter"
             whileInView="animate"
+            viewport={{once: true}}
           >
             Hello, I'm Ditra, a <TextLink text='full-stack developer' onClick={() => handleOpenModal('dev')}/> currently studying <TextLink text='computer science at ITB' onClick={() => handleOpenModal('itb')}/>.
           </motion.p>
@@ -110,6 +111,7 @@ const AboutSection = () => {
             variants={textVariants}
             initial="enter"
             whileInView="animate"
+            viewport={{once: true}}
           >
             I love to express my <TextLink text='skills' onClick={() => handleOpenModal('skills')} /> and <TextLink text='creativity' onClick={() => handleOpenModal('creativity')}/> through this website.
           </motion.p>
@@ -119,6 +121,7 @@ const AboutSection = () => {
             variants={textVariants}
             initial="enter"
             whileInView="animate"
+            viewport={{once: true}}
           > 
             Feel free to have a look and <TextLink text='contact me' /> about anything!
           </motion.p>
@@ -132,6 +135,7 @@ const AboutSection = () => {
           variants={buttonVariants}
           initial="enter"
           whileInView="animate"
+          viewport={{once: true}}
         >
           <div className='relative w-[150px] group'>
             <Button text='Resume' icon={DownloadIcon}/>
