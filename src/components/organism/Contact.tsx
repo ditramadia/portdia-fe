@@ -3,11 +3,10 @@ import React, { useEffect, useState } from 'react';
 // Component
 import TextInput from '../atom/TextInput';
 import TextAreaInput from '../atom/TextAreaInput';
+import Footer from './Footer';
 
 const Contact = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  
-  // Form data
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,7 +19,7 @@ const Contact = () => {
     <div></div> 
   ) :
   (
-    <div className='w-11/12 flex flex-col gap-7 md:gap-10 items-center'>
+    <div className='w-full flex flex-col gap-7 md:gap-10 items-center'>
 
       <h2 
         className='w-fit abril-fatface-regular text-purple-to-blue text-5xl text-center'
@@ -32,8 +31,8 @@ const Contact = () => {
         Let's talk about something big
       </h2>
 
-      <div className='relative w-full h-fit overflow-y-hidden mt-24 pt-5 flex justify-center'>
-        <div className='max-w-[500px] w-full flex flex-col gap-5'>
+      <div className='w-full h-fit overflow-y-hidden mt-24 pt-5 flex flex-col items-center gap-32'>
+        <div className='max-w-[500px] w-11/12 flex flex-col gap-5'>
           <TextInput
             label='Email'
             type='email'
@@ -52,8 +51,11 @@ const Contact = () => {
             placeholder='Your message here'
           />
 
-          <div className='absolute -z-10 top-0 left-0 right-0 ml-auto mr-auto w-[1000px] h-[1000px] rounded-full bg-gradient-to-b from-blue_main to-90% to-transparent opacity-50' />
+
         </div>
+
+        <Footer />
+      
       </div>
 
     </div>

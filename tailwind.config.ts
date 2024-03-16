@@ -22,8 +22,12 @@ const config: Config = {
       }
     },
     screens: {
-      'md': '950px'
+      'md': '950px',
+      'lg': '1100px'
     }
+  },
+  variants: {
+    fill: ['hover', 'focus'],
   },
   plugins: [],
 };

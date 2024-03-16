@@ -14,7 +14,7 @@ const TextInput = (props: TextInputProps) => {
 
   return (
     <div className='flex flex-col gap-2'>
-      <label className='text-white poppins-extrabold text-xs'>{label}</label>
+      <label className='text-white poppins-extrabold text-sm'>{label}</label>
       <input 
         type={type}
         name={name} 
