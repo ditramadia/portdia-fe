@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { fadeUp } from '@/animations/fade';
 
 interface TextAreaInputProps {
   label: string,
@@ -11,7 +13,9 @@ interface TextAreaInputProps {
 const TextAreaInput = (props: TextAreaInputProps) => {
   const { label, name, placeholder } = props;
   return (
-    <div className='w-full flex flex-col gap-2'>
+    <div 
+      className='w-full flex flex-col gap-2'
+    >
       <label className='text-white poppins-extrabold text-sm'>{label}</label>
       <textarea 
         name={name} 

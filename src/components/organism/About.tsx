@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Variants, motion } from 'framer-motion';
 
+// Animations
+import { fadeDown } from '@/animations/fade';
+
 // Asset
 import DownloadIcon from '@public/icons/download-ic.svg';
 
@@ -19,22 +22,6 @@ const AboutSection = () => {
       setLoading(false);
     }, 1000)
   });
-
-  const titleVariants: Variants = {
-    enter: {
-      opacity: 0,
-      y: -20
-    },
-    animate: i => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: 'easeInOut',
-        duration: 1,
-        delay: i * 0.2
-      }
-    })
-  }
 
   const textVariants: Variants = {
     enter: {
@@ -86,9 +73,10 @@ const AboutSection = () => {
       <motion.h2 
         className='w-fit abril-fatface-regular text-purple-to-blue text-5xl text-center'
         custom={0}
-        variants={titleVariants}
+        variants={fadeDown}
         initial="enter"
         whileInView="animate"
+        viewport={{ once: true }}
       >
         About Me
       </motion.h2>

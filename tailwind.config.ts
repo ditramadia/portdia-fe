@@ -21,6 +21,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'blue-ellipse': "url('/images/blue-ellipse.png')",
       }
     },
     screens: {

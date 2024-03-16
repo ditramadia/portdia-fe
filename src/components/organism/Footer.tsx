@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
-  return (
-    <div className='w-full h-fit mb-5 flex flex-col gap-5 items-center'>
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000)
+  });
+
+  return loading ? 
+    (
+      <div></div>
+    ) :
+    (
+    <div className='relative w-full h-fit flex flex-col gap-5 items-center'>
       <div className='flex gap-4'>
         <a 
           href='https://www.linkedin.com/in/ditra-amadia/' 
@@ -29,9 +41,10 @@ const Footer = () => {
         </a>
       </div>
 
-      <div className='text-white poppins-regular text-sm text-center'>
+      <div className='text-white poppins-regular text-sm text-center mb-5'>
         &copy; 2024 All rights reserved. <span className='text-tosca_main'>Ditra Amadia</span>
       </div>
+
     </div>
   );
 };
