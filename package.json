@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@fontsource/abril-fatface": "^5.0.19",
     "@fontsource/poppins": "^5.0.12",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

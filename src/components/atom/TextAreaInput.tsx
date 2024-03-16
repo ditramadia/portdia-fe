@@ -6,12 +6,12 @@ interface TextAreaInputProps {
   label: string,
   name: string,
   placeholder: string,
-  // value: string
-  // onChange: () => void
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 };
 
 const TextAreaInput = (props: TextAreaInputProps) => {
-  const { label, name, placeholder } = props;
+  const { label, name, placeholder, value, onChange } = props;
   return (
     <div 
       className='w-full flex flex-col gap-2'
@@ -21,6 +21,9 @@ const TextAreaInput = (props: TextAreaInputProps) => {
         name={name} 
         placeholder={placeholder}
         rows={8}
+        value={value}
+        onChange={onChange}
+        required
         className='w-full h-fit p-2 bg-white/20 poppins-light text-white backdrop-blur-lg rounded-md border-[1px] border-solid border-white placeholder:text-gray-500'
       />
     </div>

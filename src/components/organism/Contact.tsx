@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
 
 // Animation
 import { fadeDown, fadeUp } from '@/animations/fade';
@@ -8,14 +10,74 @@ import { fadeDown, fadeUp } from '@/animations/fade';
 import TextInput from '../atom/TextInput';
 import TextAreaInput from '../atom/TextAreaInput';
 
+interface EmailFormProps {
+  name: string,
+  email: string,
+  message: string
+}
+
 const Contact = () => {
+  // Page loading state
   const [loading, setLoading] = useState<boolean>(true);
 
+  // Handle page loading
   useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? '')
     setTimeout(() => {
       setLoading(false);
     }, 1000)
+  }, []);
+
+  // Email form data
+  const [form, setForm] = useState<EmailFormProps>({
+    name: '',
+    email: '',
+    message: ''
   });
+
+  // Send message state
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  // Handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>| React.ChangeEvent<HTMLTextAreaElement>) => {
+    let name = e.currentTarget.name;
+    let value = e.currentTarget.value;
+    
+    setForm((prev) => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  // Handle submit message
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSuccess(false);
+    setIsError(false);
+    setIsLoading(true);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '';
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '';
+
+    try {
+      setIsLoading(true);
+
+      await emailjs.send(serviceId, templateId, {
+        sender_name: form.name,
+        sender_email: form.email,
+        message: form.message
+      });
+      
+      setIsSuccess(true);
+    } catch (error) {
+      console.error(error);
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return loading ? 
   ( 
@@ -35,7 +97,10 @@ const Contact = () => {
         Let's talk about something big
       </motion.h2>
 
-      <div className='max-w-[500px] w-11/12 flex flex-col gap-5 items-center'>
+      <form 
+        className='max-w-[500px] w-11/12 flex flex-col gap-5 items-center'
+        onSubmit={handleSubmit}
+      >
         <motion.div
           className='w-full'
           custom={1}
@@ -45,10 +110,12 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <TextInput
-            label='Email'
-            type='email'
-            name='email'
-            placeholder='Your email'
+            label='Name'
+            type='text'
+            name='name'
+            placeholder='What should I call you?'
+            value={form.name}
+            onChange={handleChange}
           />
         </motion.div>
 
@@ -61,10 +128,12 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <TextInput
-            label='Subject'
-            type='text'
-            name='subject'
-            placeholder='The subject'
+            label='Email'
+            type='email'
+            name='email'
+            placeholder='Where can I reach you?'
+            value={form.email}
+            onChange={handleChange}
           />
         </motion.div>
 
@@ -79,25 +148,38 @@ const Contact = () => {
           <TextAreaInput 
             label='Message'
             name='message'
-            placeholder='Your message here'
+            placeholder='Your message goes here'
+            value={form.message}
+            onChange={handleChange}
           />
         </motion.div>
 
-        <motion.div 
-          className='relative w-fit h-fit mt-3 group'
+        <motion.button 
+          className={`relative w-fit h-fit mt-3 group ${isSuccess || isError || isLoading ? '' : 'cursor-pointer'}`}
+          type='submit'
           custom={4}
           variants={fadeUp}
           initial="enter"
           whileInView="animate"
+          whileTap={{ scale: isSuccess || isError ? 1 : 0.9 }}
           viewport={{ once: true }}
+          disabled={isSuccess || isLoading || isError}
         >
-          <div className='opacity-0 absolute inset-0 bg-gradient-to-r from-blue_main to-tosca_main blur-md rounded-lg transition-opacity duration-500 ease-in-out group-hover:opacity-70'></div>
-          <div className='relative w-[170px] h-fit py-2 flex items-center justify-center rounded-lg bg-white cursor-pointer transition-all duration-150 ease-in-out active:scale-95'>
-            <span className='text-black poppins-medium'>Send</span>
+          <div className={`opacity-0 absolute inset-0 bg-gradient-to-r ${isError ? 'from-red-500 to-red-300' : 'from-blue_main to-tosca_main'} blur-md rounded-lg transition-opacity duration-500 ease-in-out ${isSuccess || isError ? 'opacity-70' : ''} ${isSuccess || isLoading ? '' : 'group-hover:opacity-70'}`}></div>
+          <div className={`relative w-[170px] h-fit py-2 flex items-center justify-center ${isSuccess ? 'text-white bg-emerald-600' : isError ? 'text-white bg-red-500' : 'text-black bg-white'} poppins-bold rounded-lg transition-all duration-1000 ease-in-out`}>
+            {
+              isLoading ?
+              <span>Sending...</span> :
+              isError ?
+              <span>Error. Try again</span> :
+              isSuccess ?
+              <span>Message sent</span> :
+              <span>Send</span>
+            }
           </div>
-        </motion.div>
+        </motion.button>
 
-      </div>
+      </form>
 
     </div>
   );
