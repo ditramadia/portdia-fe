@@ -137,9 +137,8 @@ const AboutSection = () => {
           whileInView="animate"
           viewport={{once: true}}
         >
-          <div className='relative w-[150px] group'>
-            <Button text='Resume' color='blue' icon={DownloadIcon} iconAlt='Download icon'/>
-            <div className='absolute -z-10 -top-[140px] -right-[120px] w-[300px] h-[300px] rounded-full bg-gradient-radial from-blue_main to-transparent to-65% opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-20'></div>
+          <div className='w-[150px] group'>
+            <Button text='Resume' icon={DownloadIcon} iconAlt='Download icon'/>
           </div>
         </motion.a>
       </div>

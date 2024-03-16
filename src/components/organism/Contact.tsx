@@ -51,13 +51,13 @@ const Contact = () => {
             name='message'
             placeholder='Your message here'
           />
-          <div className='w-[170px]'>
-            <Button
-              text='Send'
-              color='white'
-            />
-          </div>
 
+          <div className='relative w-fit h-fit mt-3 group'>
+            <div className='opacity-0 absolute inset-0 bg-gradient-to-r from-blue_main to-tosca_main blur-md rounded-lg transition-opacity duration-500 ease-in-out group-hover:opacity-70'></div>
+            <div className='relative w-[170px] h-fit py-2 flex items-center justify-center rounded-lg bg-white cursor-pointer transition-all duration-150 ease-in-out active:scale-95'>
+              <span className='text-black poppins-medium'>Send</span>
+            </div>
+          </div>
 
         </div>
 
