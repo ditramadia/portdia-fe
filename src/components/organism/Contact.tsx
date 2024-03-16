@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import TextInput from '../atom/TextInput';
 import TextAreaInput from '../atom/TextAreaInput';
 import Footer from './Footer';
+import Button from '../atom/Button';
 
 const Contact = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,7 +33,7 @@ const Contact = () => {
       </h2>
 
       <div className='w-full h-fit overflow-y-hidden mt-24 pt-5 flex flex-col items-center gap-32'>
-        <div className='max-w-[500px] w-11/12 flex flex-col gap-5'>
+        <div className='max-w-[500px] w-11/12 flex flex-col gap-5 items-center'>
           <TextInput
             label='Email'
             type='email'
@@ -50,6 +51,12 @@ const Contact = () => {
             name='message'
             placeholder='Your message here'
           />
+          <div className='w-[170px]'>
+            <Button
+              text='Send'
+              color='white'
+            />
+          </div>
 
 
         </div>
