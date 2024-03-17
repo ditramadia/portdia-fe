@@ -68,7 +68,7 @@ const AboutSection = () => {
     <div></div>
   ) : 
   (
-    <div className='w-11/12 mb-52 flex flex-col gap-7 md:gap-10 items-center'>
+    <div className='w-11/12 mb-52 flex flex-col gap-7 md:gap-10 items-center md:mb-96'>
 
       <motion.h2 
         className='w-fit abril-fatface-regular text-purple-to-blue text-5xl text-center'

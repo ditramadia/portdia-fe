@@ -3,19 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000)
-  });
-
-  return loading ? 
-    (
-      <div></div>
-    ) :
-    (
+  return (
     <div className='relative w-full h-fit flex flex-col gap-5 items-center'>
       <div className='flex gap-4'>
         <a 

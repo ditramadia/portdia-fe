@@ -4,6 +4,7 @@ import '@fontsource/poppins';
 import '@fontsource/abril-fatface';
 import "@public/styles/font.css";
 import "@public/styles/text.css";
+import "@public/styles/glare.css";
 
 export const metadata: Metadata = {
   title: "Portdia | Ditra Amadia Portfolio",
