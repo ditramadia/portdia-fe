@@ -24,7 +24,7 @@ const TextAreaInput = (props: TextAreaInputProps) => {
         value={value}
         onChange={onChange}
         required
-        className='w-full h-fit p-2 bg-white/20 poppins-light text-white backdrop-blur-lg rounded-md border-[1px] border-solid border-white placeholder:text-gray-500'
+        className='w-full h-fit p-2 bg-white/5 poppins-light text-white backdrop-blur-lg rounded-md border-[1px] border-solid border-white/10 placeholder:text-gray-500'
       />
     </div>
   );

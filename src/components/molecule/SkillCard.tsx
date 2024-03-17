@@ -48,7 +48,7 @@ const SkillCard = (props: SkillCardProps) => {
   return (
     <motion.div 
       ref={ref}
-      className='w-[340px] h-[180px] p-6 flex flex-col justify-center items-center gap-4 bg-white/20 backdrop-blur-lg border-[1px] border-solid border-white/40 rounded-lg text-center'
+      className='w-[340px] h-[180px] p-6 flex flex-col justify-center items-center gap-4 bg-white/5 backdrop-blur-lg border-[1px] border-solid border-white/10 rounded-lg text-center'
       style={{
         transformStyle: 'preserve-3d',
         transform,
