@@ -30,11 +30,17 @@ const SkillCard = (props: SkillCardProps) => {
     const width = rect.width;
     const height = rect.height;
 
-    const mouseX = (e.clientX - rect.left) * ROTATION_RANGE;
-    const mouseY = (e.clientY - rect.top) * ROTATION_RANGE;
+    const rotateXCoor = (e.clientX - rect.left) * ROTATION_RANGE;
+    const rotateYCoor = (e.clientY - rect.top) * ROTATION_RANGE;
+    
+    const glareXCoor = e.clientX - rect.left;
+    const glareYCoor = e.clientY - rect.top;
 
-    const rX = (mouseY / height - HALF_ROTATION_RANGE) * -1;
-    const rY = (mouseX / width - HALF_ROTATION_RANGE);
+    ref.current.style.setProperty("--mouse-x", `${glareXCoor}px`);
+    ref.current.style.setProperty("--mouse-y", `${glareYCoor}px`);
+
+    const rX = (rotateYCoor / height - HALF_ROTATION_RANGE) * -1;
+    const rY = (rotateXCoor / width - HALF_ROTATION_RANGE);
 
     x.set(rX);
     y.set(rY);
@@ -48,7 +54,7 @@ const SkillCard = (props: SkillCardProps) => {
   return (
     <motion.div 
       ref={ref}
-      className='w-[340px] h-[180px] p-6 flex flex-col justify-center items-center gap-4 bg-white/5 backdrop-blur-lg border-[1px] border-solid border-white/10 rounded-lg text-center'
+      className='relative w-[340px] h-[180px] p-[1px] flex justify-center items-center bg-white/10 backdrop-blur-lg rounded-lg glare'
       style={{
         transformStyle: 'preserve-3d',
         transform,
@@ -56,15 +62,17 @@ const SkillCard = (props: SkillCardProps) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <h6 
-        className='text-tosca_main poppins-bold text-xs'
-      >{experience} YEARS EXPERIENCE</h6>
-      <h3 
-        className='text-white abril-fatface-regular text-3xl'
-      >{title}</h3>
-      <p 
-        className='text-grey poppins-regular text-md'
-      >{description}</p>
+      <div className='relative z-10 w-full h-full p-6 bg-black/80 rounded-lg flex flex-col justify-center items-center text-center gap-4'>
+        <h6 
+          className='text-tosca_main poppins-bold text-xs'
+        >{experience} YEARS EXPERIENCE</h6>
+        <h3 
+          className='text-white abril-fatface-regular text-3xl'
+        >{title}</h3>
+        <p 
+          className='text-grey poppins-regular text-md'
+        >{description}</p>
+      </div>
     </motion.div>
   );
 };

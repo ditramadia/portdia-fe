@@ -18,12 +18,11 @@ export default function Home() {
   })
   
   return (
-    <div className={`min-h-screen h-fit overflow-x-hidden flex flex-col items-center ${loading ? '' : 'bg-blue-ellipse bg-no-repeat bg-bottom'}`}>
+    <div className={`min-h-screen h-fit overflow-x-hidden flex flex-col items-center ${loading ? '' : ''}`}>
       <HeroSection />
       <AboutSection />
       <Skill />
       <Contact />
-      <Footer />
     </div>
   );
 }
