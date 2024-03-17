@@ -13,6 +13,7 @@ const config: Config = {
         white: '#EEF1EC',
         white_dark: '#BCBEC5',
         white_darker: '#919399',
+        grey: '#C4C4C4',
         tosca_main: '#5FF3D6',
         purple_main: '#7B46F3',
         blue_main: '#5392EA',
