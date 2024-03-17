@@ -1,11 +1,11 @@
 'use client';
+import { useEffect, useState } from "react";
 
 // Components
 import HeroSection from "@/components/organism/Hero";
 import AboutSection from "@/components/organism/About";
 import Contact from "@/components/organism/Contact";
 import Footer from "@/components/organism/Footer";
-import { useEffect, useState } from "react";
 import Skill from "@/components/organism/Skill";
 
 export default function Home() {
