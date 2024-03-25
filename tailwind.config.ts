@@ -8,12 +8,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        black: '#030306',
+        white: '#EEF1EC',
+        white_dark: '#BCBEC5',
+        white_darker: '#919399',
+        grey: '#C4C4C4',
+        tosca_main: '#5FF3D6',
+        purple_main: '#7B46F3',
+        blue_main: '#5392EA',
+        blue_dark: '#4987DD',
+        blue_darker: '#467CC8'
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'blue-ellipse': "url('/images/blue-full-ellipse.png')",
+      }
     },
+    screens: {
+      'md': '950px',
+      'lg': '1100px'
+    }
+  },
+  variants: {
+    fill: ['hover', 'focus'],
   },
   plugins: [],
 };
